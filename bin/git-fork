@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/data/data/com.spartacusrex.spartacuside/files/system/bin/bbdir/env bash
 
 abort() {
   echo $@

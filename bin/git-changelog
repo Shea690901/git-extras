@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/data/data/com.spartacusrex.spartacuside/files/system/bin/bbdir/env bash
 
 DEF_TAG_RECENT="n.n.n"
 GIT_LOG_OPTS="$(git config changelog.opts)"

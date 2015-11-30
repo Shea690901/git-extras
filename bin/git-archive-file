@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/data/data/com.spartacusrex.spartacuside/files/system/bin/bbdir/env bash
 
 # extract current branch name
 BRANCH=$(git rev-parse --abbrev-ref HEAD 2> /dev/null)

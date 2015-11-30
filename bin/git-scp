@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/data/data/com.spartacusrex.spartacuside/files/system/bin/bbdir/env bash
 
 COLOR_RED()   { test -t 1 && echo -n "$(tput setaf 1)"; }
 COLOR_GREEN() { test -t 1 && echo -n "$(tput setaf 2)"; }

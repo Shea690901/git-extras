@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/data/data/com.spartacusrex.spartacuside/files/system/bin/bbdir/env bash
 
 VERSION="3.0.0"
 INSTALL_SCRIPT="https://raw.githubusercontent.com/tj/git-extras/master/install.sh"

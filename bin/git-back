@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/data/data/com.spartacusrex.spartacuside/files/system/bin/bbdir/env bash
 
 if test $# -eq 0; then
   git reset --soft HEAD~1

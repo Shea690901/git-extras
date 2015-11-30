@@ -1,4 +1,4 @@
-PREFIX ?= /usr/local
+PREFIX ?= /storage/sdcard0/usr/local
 BINPREFIX ?= "$(PREFIX)/bin"
 MANPREFIX ?= "$(PREFIX)/share/man/man1"
 BINS = $(wildcard bin/git-*)
@@ -7,6 +7,7 @@ MAN_HTML = $(MANS:.md=.html)
 MAN_PAGES = $(MANS:.md=.1)
 # Libraries used by all commands
 LIB = "helper/reset-env" "helper/git-extra-utility"
+TEMPFILE = "/storage/sdcard0/tmp/git-extra"
 
 COMMANDS = $(subst bin/, , $(BINS))
 
@@ -19,7 +20,8 @@ install:
 	@mkdir -p $(DESTDIR)$(BINPREFIX)
 	@echo "... installing bins to $(DESTDIR)$(BINPREFIX)"
 	@echo "... installing man pages to $(DESTDIR)$(MANPREFIX)"
-	$(eval TEMPFILE := $(shell mktemp -q $${TMPDIR:-/tmp}/git-extras.XXXXXX 2>/dev/null || mktemp -q))
+	@# (eval TEMPFILE := $(shell mktemp -q $${TMPDIR:-/tmp}/git-extras.XXXXXX 2>/dev/null || mktemp -q))
+	@touch $(TEMPFILE)
 	@# chmod from rw-------(default) to rwxrwxr-x, so that users can exec the scripts
 	@chmod 775 $(TEMPFILE)
 	$(eval EXISTED_ALIASES := $(shell \
@@ -47,8 +49,8 @@ install:
 		cp -f man/git-*.1 $(DESTDIR)$(MANPREFIX); \
 		echo "cp -f man/git-*.1 $(DESTDIR)$(MANPREFIX)"; \
 	fi
-	@mkdir -p $(DESTDIR)/etc/bash_completion.d
-	cp -f etc/bash_completion.sh $(DESTDIR)/etc/bash_completion.d/git-extras
+	@mkdir -p ~/files/system/etc/bash_completion.d
+	cp -f etc/bash_completion.sh ~/files/system/etc/bash_completion.d/git-extras
 
 man/%.html: man/%.md
 	ronn \
@@ -72,7 +74,7 @@ uninstall:
 		echo "... uninstalling $(DESTDIR)$(MANPREFIX)/$(notdir $(MAN))"; \
 		rm -f $(DESTDIR)$(MANPREFIX)/$(notdir $(MAN)); \
 	)
-	rm -f $(DESTDIR)/etc/bash_completion.d/git-extras
+	rm -f ~/files/system/etc/bash_completion.d/git-extras
 
 clean: docclean
 
