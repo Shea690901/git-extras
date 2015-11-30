@@ -8,9 +8,9 @@ project=${PWD##*/}
 single_file() {
   while read data
   do
-    if [[ $(file "$data") = *text* ]]; then
+#    if [[ $(file "$data") = *text* ]]; then
       git blame --line-porcelain "$data" 2>/dev/null | grep "^author\ " | LC_ALL=C sed -n 's/^author //p';
-    fi
+#    fi
   done
 }
 
@@ -46,7 +46,8 @@ result() {
         printf " %s, %2.1f%%\n", args[i], 100 * args[i] / sum
       }
     }
-    ' | column -t -s,
+    '
+    # | column -t -s,
 }
 
 # summary
