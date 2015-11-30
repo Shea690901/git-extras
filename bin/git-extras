@@ -4,6 +4,8 @@ VERSION="3.0.0"
 INSTALL_SCRIPT="https://raw.githubusercontent.com/tj/git-extras/master/install.sh"
 
 update() {
+    echo command not available
+    exit 1
   local bin=$(which git-extras)
   local prefix=${bin%/*/*}
   local orig=$PWD

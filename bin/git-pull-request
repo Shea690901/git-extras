@@ -1,4 +1,6 @@
 #!/data/data/com.spartacusrex.spartacuside/files/system/bin/bbdir/env bash
+    echo command not available
+    exit 1
 
 #
 # Echo <msg> and exit
