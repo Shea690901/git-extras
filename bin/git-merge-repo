@@ -6,7 +6,7 @@ prefix=$3
 flat=0
 
 if test $prefix = "."; then
-	prefix=$(mktemp -u 'git-merge-repo.XXXXXXX')
+	prefix=$(mktemp -d)
 	flat=1
 fi
 

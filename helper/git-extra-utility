@@ -2,24 +2,7 @@
 
 # make a temporary file
 git_extra_mktemp() {
-# mktemp doesn't work...
-#    mktemp -t "$(basename "$0")".XXX
-    F=$(basename "$0")
-    for x in 0 1 2 3 4 5 6 7 8 9
-    do
-        for y in 0 1 2 3 4 5 6 7 8 9
-        do
-            for z in 0 1 2 3 4 5 6 7 8 9
-            do
-                FILE=${F}.${x}${y}${z}
-                if [ ! -e ${FILE} ]
-                then
-                    touch ${FILE}
-                    echo ${FILE}
-                    exit 0
-                fi
-            done
-        done
-    done
+# mktemp doesn't work as expected...
+    mktemp
 }
 
